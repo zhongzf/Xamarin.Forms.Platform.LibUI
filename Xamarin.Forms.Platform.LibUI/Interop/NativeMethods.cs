@@ -86,11 +86,11 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
         [DllImport(LibUI)] public static extern UIntPtr uiControlHandle(IntPtr c);
         [DllImport(LibUI)] public static extern IntPtr cuiControlParent(IntPtr c);
         [DllImport(LibUI)] public static extern void uiControlSetParent(IntPtr c1, IntPtr c2);
-        [DllImport(LibUI)] public static extern int uiControlToplevel(IntPtr c);
-        [DllImport(LibUI)] public static extern int uiControlVisible(IntPtr c);
+        [DllImport(LibUI)] public static extern bool uiControlToplevel(IntPtr c);
+        [DllImport(LibUI)] public static extern bool uiControlVisible(IntPtr c);
         [DllImport(LibUI)] public static extern void uiControlShow(IntPtr c);
         [DllImport(LibUI)] public static extern void uiControlHide(IntPtr c);
-        [DllImport(LibUI)] public static extern int uiControlEnabled(IntPtr c);
+        [DllImport(LibUI)] public static extern bool uiControlEnabled(IntPtr c);
         [DllImport(LibUI)] public static extern void uiControlEnable(IntPtr c);
         [DllImport(LibUI)] public static extern void uiControlDisable(IntPtr c);
 
@@ -109,18 +109,18 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
         [DllImport(LibUI)] public static extern void uiWindowSetTitle(IntPtr w, string title);
         [DllImport(LibUI)] public static extern void uiWindowContentSize(IntPtr w, out int width, out int height);
         [DllImport(LibUI)] public static extern void uiWindowSetContentSize(IntPtr w, int width, int height);
-        [DllImport(LibUI)] public static extern int uiWindowFullscreen(IntPtr w);
-        [DllImport(LibUI)] public static extern void uiWindowSetFullscreen(IntPtr w, int fullscreen);
+        [DllImport(LibUI)] public static extern bool uiWindowFullscreen(IntPtr w);
+        [DllImport(LibUI)] public static extern void uiWindowSetFullscreen(IntPtr w, bool fullscreen);
         public delegate void uiWindowOnContentSizeChangedDelegate(IntPtr w, IntPtr data);
         [DllImport(LibUI)] public static extern void uiWindowOnContentSizeChanged(IntPtr w, uiWindowOnContentSizeChangedDelegate f, IntPtr data);
-        public delegate int uiWindowOnClosingDelegate(IntPtr w, IntPtr data);
+        public delegate bool uiWindowOnClosingDelegate(IntPtr w, IntPtr data);
         [DllImport(LibUI)] public static extern void uiWindowOnClosing(IntPtr w, uiWindowOnClosingDelegate f, IntPtr data);
-        [DllImport(LibUI)] public static extern int uiWindowBorderless(IntPtr w);
-        [DllImport(LibUI)] public static extern void uiWindowSetBorderless(IntPtr w, int borderless);
+        [DllImport(LibUI)] public static extern bool uiWindowBorderless(IntPtr w);
+        [DllImport(LibUI)] public static extern void uiWindowSetBorderless(IntPtr w, bool borderless);
         [DllImport(LibUI)] public static extern void uiWindowSetChild(IntPtr w, IntPtr cchild);
-        [DllImport(LibUI)] public static extern int uiWindowMargined(IntPtr w);
-        [DllImport(LibUI)] public static extern void uiWindowSetMargined(IntPtr w, int margined);
-        [DllImport(LibUI)] public static extern IntPtr uiNewWindow(string title, int width, int height, int hasMenubar);
+        [DllImport(LibUI)] public static extern bool uiWindowMargined(IntPtr w);
+        [DllImport(LibUI)] public static extern void uiWindowSetMargined(IntPtr w, bool margined);
+        [DllImport(LibUI)] public static extern IntPtr uiNewWindow(string title, int width, int height, bool hasMenubar);
 
         // typedef struct uiButton uiButton;
         // #define uiButton(this) ((uiButton *) (this))
