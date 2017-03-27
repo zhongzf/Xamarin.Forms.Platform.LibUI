@@ -15,6 +15,7 @@ namespace Xamarin.Forms.Platform.LibUI
             if (Handle != IntPtr.Zero)
             {
                 uiControlDestroy(Handle);
+                Handle = IntPtr.Zero;
             }
             GC.SuppressFinalize(this);
         }
