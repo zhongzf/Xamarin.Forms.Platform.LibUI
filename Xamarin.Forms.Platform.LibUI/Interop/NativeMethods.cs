@@ -132,10 +132,10 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
 
         // typedef struct uiBox uiBox;
         // #define uiBox(this) ((uiBox *) (this))
-        [DllImport(LibUI)] public static extern void uiBoxAppend(IntPtr b, IntPtr cchild, int stretchy);
+        [DllImport(LibUI)] public static extern void uiBoxAppend(IntPtr b, IntPtr cchild, bool stretchy);
         [DllImport(LibUI)] public static extern void uiBoxDelete(IntPtr b, int index);
-        [DllImport(LibUI)] public static extern int uiBoxPadded(IntPtr b);
-        [DllImport(LibUI)] public static extern void uiBoxSetPadded(IntPtr b, int padded);
+        [DllImport(LibUI)] public static extern bool uiBoxPadded(IntPtr b);
+        [DllImport(LibUI)] public static extern void uiBoxSetPadded(IntPtr b, bool padded);
         [DllImport(LibUI)] public static extern IntPtr uiNewHorizontalBox();
         [DllImport(LibUI)] public static extern IntPtr uiNewVerticalBox();
 
@@ -145,8 +145,8 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
         [DllImport(LibUI)] public static extern void uiCheckboxSetText(IntPtr c, string text);
         public delegate void uiCheckboxOnToggledDelegate(IntPtr c, IntPtr data);
         [DllImport(LibUI)] public static extern void uiCheckboxOnToggled(IntPtr c, uiCheckboxOnToggledDelegate f, IntPtr data);
-        [DllImport(LibUI)] public static extern int uiCheckboxChecked(IntPtr c);
-        [DllImport(LibUI)] public static extern void uiCheckboxSetChecked(IntPtr c, int @checked);
+        [DllImport(LibUI)] public static extern bool uiCheckboxChecked(IntPtr c);
+        [DllImport(LibUI)] public static extern void uiCheckboxSetChecked(IntPtr c, bool @checked);
         [DllImport(LibUI)] public static extern IntPtr uiNewCheckbox(string text);
 
         // typedef struct uiEntry uiEntry;
@@ -155,8 +155,8 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
         [DllImport(LibUI)] public static extern void uiEntrySetText(IntPtr e, string text);
         public delegate void uiEntryOnChangedDelegate(IntPtr f, IntPtr data);
         [DllImport(LibUI)] public static extern void uiEntryOnChanged(IntPtr e, uiEntryOnChangedDelegate f, IntPtr data);
-        [DllImport(LibUI)] public static extern int uiEntryReadOnly(IntPtr e);
-        [DllImport(LibUI)] public static extern void uiEntrySetReadOnly(IntPtr e, int @readonly);
+        [DllImport(LibUI)] public static extern bool uiEntryReadOnly(IntPtr e);
+        [DllImport(LibUI)] public static extern void uiEntrySetReadOnly(IntPtr e, bool @readonly);
         [DllImport(LibUI)] public static extern IntPtr uiNewEntry();
         [DllImport(LibUI)] public static extern IntPtr uiNewPasswordEntry();
         [DllImport(LibUI)] public static extern IntPtr uiNewSearchEntry();
@@ -173,8 +173,8 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
         [DllImport(LibUI)] public static extern void uiTabInsertAt(IntPtr t, string name, int before, IntPtr cc);
         [DllImport(LibUI)] public static extern void uiTabDelete(IntPtr t, int index);
         [DllImport(LibUI)] public static extern int uiTabNumPages(IntPtr t);
-        [DllImport(LibUI)] public static extern int uiTabMargined(IntPtr t, int page);
-        [DllImport(LibUI)] public static extern void uiTabSetMargined(IntPtr t, int page, int margined);
+        [DllImport(LibUI)] public static extern bool uiTabMargined(IntPtr t, int page);
+        [DllImport(LibUI)] public static extern void uiTabSetMargined(IntPtr t, int page, bool margined);
         [DllImport(LibUI)] public static extern IntPtr uiNewTab();
 
         // typedef struct uiGroup uiGroup;
@@ -182,8 +182,8 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
         [DllImport(LibUI)] public static extern string uiGroupTitle(IntPtr g);
         [DllImport(LibUI)] public static extern void uiGroupSetTitle(IntPtr g, string title);
         [DllImport(LibUI)] public static extern void uiGroupSetChild(IntPtr g, IntPtr cc);
-        [DllImport(LibUI)] public static extern int uiGroupMargined(IntPtr g);
-        [DllImport(LibUI)] public static extern void uiGroupSetMargined(IntPtr g, int margined);
+        [DllImport(LibUI)] public static extern bool uiGroupMargined(IntPtr g);
+        [DllImport(LibUI)] public static extern void uiGroupSetMargined(IntPtr g, bool margined);
         [DllImport(LibUI)] public static extern IntPtr uiNewGroup(string title);
 
         // spinbox/slider rules:
@@ -260,8 +260,8 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
         [DllImport(LibUI)] public static extern void uiMultilineEntryAppend(IntPtr e, string text);
         public delegate void uiMultilineEntryOnChangedDelegate(IntPtr e, IntPtr data);
         [DllImport(LibUI)] public static extern void uiMultilineEntryOnChanged(IntPtr e, uiMultilineEntryOnChangedDelegate f, IntPtr data);
-        [DllImport(LibUI)] public static extern int uiMultilineEntryReadOnly(IntPtr e);
-        [DllImport(LibUI)] public static extern void uiMultilineEntrySetReadOnly(IntPtr e, int @readonly);
+        [DllImport(LibUI)] public static extern bool uiMultilineEntryReadOnly(IntPtr e);
+        [DllImport(LibUI)] public static extern void uiMultilineEntrySetReadOnly(IntPtr e, bool @readonly);
         [DllImport(LibUI)] public static extern IntPtr uiNewMultilineEntry();
         [DllImport(LibUI)] public static extern IntPtr uiNewNonWrappingMultilineEntry();
 
@@ -271,8 +271,8 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
         [DllImport(LibUI)] public static extern void uiMenuItemDisable(IntPtr m);
         public delegate void uiMenuItemOnClickedDelegate(IntPtr sender, IntPtr window, IntPtr data);
         [DllImport(LibUI)] public static extern void uiMenuItemOnClicked(IntPtr m, uiMenuItemOnClickedDelegate f, IntPtr data);
-        [DllImport(LibUI)] public static extern int uiMenuItemChecked(IntPtr m);
-        [DllImport(LibUI)] public static extern void uiMenuItemSetChecked(IntPtr m, int @checked);
+        [DllImport(LibUI)] public static extern bool uiMenuItemChecked(IntPtr m);
+        [DllImport(LibUI)] public static extern void uiMenuItemSetChecked(IntPtr m, bool @checked);
 
         // typedef struct uiMenu uiMenu;
         // #define uiMenu(this) ((IntPtr ) (this))
@@ -284,8 +284,8 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
         [DllImport(LibUI)] public static extern void uiMenuAppendSeparator(IntPtr m);
         [DllImport(LibUI)] public static extern IntPtr uiNewMenu(string name);
 
-        [DllImport(LibUI)] public static extern IntPtr uiOpenFile(IntPtr parent);
-        [DllImport(LibUI)] public static extern IntPtr uiSaveFile(IntPtr parent);
+        [DllImport(LibUI)] public static extern string uiOpenFile(IntPtr parent);
+        [DllImport(LibUI)] public static extern string uiSaveFile(IntPtr parent);
         [DllImport(LibUI)] public static extern void uiMsgBox(IntPtr parent, string title, string description);
         [DllImport(LibUI)] public static extern void uiMsgBoxError(IntPtr parent, string title, string description);
 
@@ -713,7 +713,7 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
 
         // typedef struct uiColorButton uiColorButton;
         // #define uiColorButton(this) ((uiColorButton *) (this))
-        [DllImport(LibUI)] public static extern void uiColorButtonColor(IntPtr b, ref double r, ref double g, ref double bl, ref double a);
+        [DllImport(LibUI)] public static extern void uiColorButtonColor(IntPtr b, out double r, out double g, out double bl, out double a);
         [DllImport(LibUI)] public static extern void uiColorButtonSetColor(IntPtr b, double r, double g, double bl, double a);
         public delegate void uiColorButtonOnChangedDelegate(IntPtr b, IntPtr data);
         [DllImport(LibUI)] public static extern void uiColorButtonOnChanged(IntPtr b, uiColorButtonOnChangedDelegate f, IntPtr data);
@@ -721,10 +721,10 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
 
         // typedef struct uiForm uiForm;
         // #define uiForm(this) ((uiForm *) (this))
-        [DllImport(LibUI)] public static extern void uiFormAppend(IntPtr f, string label, IntPtr cc, int stretchy);
+        [DllImport(LibUI)] public static extern void uiFormAppend(IntPtr f, string label, IntPtr cc, bool stretchy);
         [DllImport(LibUI)] public static extern void uiFormDelete(IntPtr f, int index);
-        [DllImport(LibUI)] public static extern int uiFormPadded(IntPtr f);
-        [DllImport(LibUI)] public static extern void uiFormSetPadded(IntPtr f, int padded);
+        [DllImport(LibUI)] public static extern bool uiFormPadded(IntPtr f);
+        [DllImport(LibUI)] public static extern void uiFormSetPadded(IntPtr f, bool padded);
         [DllImport(LibUI)] public static extern IntPtr uiNewForm();
 
         public enum uiAlign
@@ -747,8 +747,8 @@ namespace Xamarin.Forms.Platform.LibUI.Interop
         // #define uiGrid(this) ((uiGrid *) (this))
         [DllImport(LibUI)] public static extern void uiGridAppend(IntPtr g, IntPtr cc, int left, int top, int xspan, int yspan, int hexpand, uiAlign halign, int vexpand, uiAlign valign);
         [DllImport(LibUI)] public static extern void uiGridInsertAt(IntPtr g, IntPtr cc, IntPtr cexisting, uiAt at, int xspan, int yspan, int hexpand, uiAlign halign, int vexpand, uiAlign valign);
-        [DllImport(LibUI)] public static extern int uiGridPadded(IntPtr g);
-        [DllImport(LibUI)] public static extern void uiGridSetPadded(IntPtr g, int padded);
+        [DllImport(LibUI)] public static extern bool uiGridPadded(IntPtr g);
+        [DllImport(LibUI)] public static extern void uiGridSetPadded(IntPtr g, bool padded);
         [DllImport(LibUI)] public static extern IntPtr uiNewGrid();
     }
 }

@@ -1,12 +1,14 @@
 ﻿using System;
 using Xamarin.Forms.Platform.LibUI;
-using Xamarin.Forms.Platform.LibUI.Interop;
+using Xamarin.Forms.Platform.LibUI.Controls;
 using static Xamarin.Forms.Platform.LibUI.Interop.NativeMethods;
 
 namespace Sample
 {
     class Program
     {
+        public static Window Window;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
@@ -14,8 +16,8 @@ namespace Sample
             uiInitOptions o = new uiInitOptions();
             uiInit(ref o);
 
-            Window window = new Window("Test Window", 640, 480, false);
-            window.Show();
+            Window = new MainWindow("libui Control Gallery", 640, 480, true);
+            Window.Show();
 
             uiMain();
             uiUninit();
