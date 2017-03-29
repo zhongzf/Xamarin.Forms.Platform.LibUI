@@ -7,20 +7,9 @@ namespace Sample
 {
     class Program
     {
-        public static Window Window;
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-            uiInitOptions o = new uiInitOptions();
-            uiInit(ref o);
-
-            Window = new MainWindow("libui Control Gallery", 640, 480, true);
-            Window.Show();
-
-            uiMain();
-            uiUninit();
+            Application.Run(typeof(DemoApp));
         }
     }
 }

@@ -36,12 +36,12 @@ namespace Xamarin.Forms.Platform.LibUI.Controls
             }
         }
 
-        public Size ContentSize
+        public Drawing.Size ContentSize
         {
             get
             {
                 uiWindowContentSize(Handle, out int width, out int height);
-                return new Size(width, height);
+                return new Drawing.Size(width, height);
             }
             set
             {
@@ -82,6 +82,7 @@ namespace Xamarin.Forms.Platform.LibUI.Controls
             }
             set
             {
+                _child = value;
                 uiWindowSetChild(Handle, value.Handle);
             }
         }

@@ -8,12 +8,12 @@ namespace Xamarin.Forms.Platform.LibUI.Controls
 {
     public class ColorButton : Control
     {
-        public Color Color
+        public Drawing.Color Color
         {
             get
             {
                 uiColorButtonColor(Handle, out double r, out double g, out double b, out double a);
-                return new Color(r, g, b, a);
+                return new Drawing.Color(r, g, b, a);
             }
             set
             {

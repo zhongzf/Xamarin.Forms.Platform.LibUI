@@ -8,7 +8,7 @@ namespace Xamarin.Forms.Platform.LibUI.Controls
 {
     public class FontButton : Control
     {
-        public Font Font => new Font(uiFontButtonFont(Handle));
+        public Drawing.Font Font => new Drawing.Font(uiFontButtonFont(Handle));
 
         public event EventHandler<EventArgs> Changed;
         protected virtual void OnChanged(EventArgs e)
